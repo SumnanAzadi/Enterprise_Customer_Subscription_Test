@@ -1,3 +1,4 @@
+from phonenumber_field.modelfields import PhoneNumberField
 from django.db import models
 
 from company.models import Company, Plan
@@ -11,7 +12,7 @@ class Employee(models.Model):
 
 
 class Phone(models.Model):
-    phone = models.CharField(max_length=11, unique=True)
+    phone = PhoneNumberField(region="BD", unique=True)
     company = models.ForeignKey(Company, related_name='company', on_delete=models.CASCADE)
     employee = models.ForeignKey(Employee, related_name='employee', on_delete=models.CASCADE)
     plan = models.ForeignKey(Plan, related_name='plan', on_delete=models.CASCADE, null=True)
