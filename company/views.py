@@ -15,5 +15,6 @@ class PlanViewSet(viewsets.ModelViewSet):
 
 
 class CompanyPhoneViewSet(viewsets.ModelViewSet):
+    http_method_names = ['get', 'options', 'head']
     queryset = Company.objects.all()
     serializer_class = CompanyPhoneSerializers
